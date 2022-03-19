@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <link href="/index.css" rel="stylesheet" />
+
+    <!-- Validation Function -->
+    <script src="/validate.js"></script>
+
+    <!-- Outfit Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind <3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              shades: {
+                black: '#1b1d23',
+                white: '#f8f8f9',
+              },
+              neutrals: {
+                0: '#fcfcfd',
+                100: '#f4f5f6',
+                200: '#e6e8ec',
+                300: '#b1b5c3',
+                400: '#777e90',
+                500: '#353945',
+                600: '#23262f',
+                700: '#1a1a1a',
+              },
+              primary: {
+                green: '#14b69a',
+                red: '#DE4F41',
+                pink: '#ff2866',
+                purple: '#9665fd',
+                blue: {
+                  light: '#1792ff',
+                  dark: '#046de8',
+                },
+              },
+              secondary: {
+                purple: '#cdb4db',
+                yellow: '#ffd166',
+                tan: '#e4d7cf',
+                blue: '#4bc9f0',
+              },
+            },
+            fontFamily: {
+              outfit: 'Outfit',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <!-- Root Div -->
+      <div class="flex justify-center bg-neutrals-700 root min-h-screen">
+        <!-- Container that stops screen from growing too large -->
+        <div class="max-w-screen-xl w-full">
+          <!-- =============================== -->
+          <!-- ========== NAVBAR ============= -->
+          <!-- =============================== -->
+          <div
+            class="absolute flex sticky top-0 items-center justify-between md:justify-start w-full px-4 py-6"
+          >
+            <img
+              src="/static/src/images/White.png"
+              width="100px"
+              height="100px"
+            />
+
+            <!-- Menu Button -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="flex md:hidden h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="white"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 8h16M4 16h16"
+              />
+            </svg>
+
+            <!-- Links -->
+            <ul class="hidden md:flex text-white text-sm space-x-12 ml-12">
+              <li class="hover:underline decoration-solid">
+                <a href="/index.html">Home</a>
+              </li>
+              <li
+                class="hover:underline decoration-solid text-secondary-purple"
+              >
+                <a href="/domains.html">Domains</a>
+              </li>
+              <li class="hover:underline decoration-solid">
+                <a href="/roadmap.html">Roadmap</a>
+              </li>
+              <li class="hover:underline decoration-solid">
+                <a href="/">Leaderboard</a>
+              </li>
+            </ul>
+
+            <button
+              class="hidden md:inline bg-primary-red px-4 py-2 rounded-[5px] text-white text-sm ml-auto hover:scale-95 transition-transform"
+            >
+              Visit Old Site
+            </button>
+          </div>
+
+          <!-- ========================================= -->
+          <!-- =============== SECTION 1 =============== -->
+          <!-- ========================================= -->
+          <div class="pt-48 pb-16 px-4 flex flex-col justify-between">
+            <h1 class="text-5xl font-bold text-white mb-8">
+              Secure your Sonr Domain
+            </h1>
+
+            <form
+              id="registerForm"
+              name="registerForm"
+              onsubmit="return validateForm()"
+              method="post"
+              class="flex flex-col lg:flex-row w-full space-y-4 lg:space-x-4 lg:space-y-0 text-xl"
+            >
+              <div class="bg-white w-full rounded-2xl flex">
+                <div class="p-6 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="gray"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                </div>
+
+                <input
+                  class="bg-white-100 px-4 flex-1 outline-none"
+                  placeholder="domain"
+                  name="registerInput"
+                  type="text"
+                />
+
+                <div
+                  class="bg-gray-300 p-6 rounded-r-2xl flex items-center justify-center"
+                >
+                  <p>.snr</p>
+                </div>
+              </div>
+
+              <button
+                form="registerForm"
+                type="submit"
+                class="bg-gradient-to-r from-secondary-blue to-primary-blue-dark py-6 px-8 rounded-lg text-white"
+              >
+                Register
+              </button>
+            </form>
+          </div>
+
+          <!-- ========================================= -->
+          <!-- =============== SECTION 2 =============== -->
+          <!-- ========================================= -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-4 gap-8 pb-8"
+          >
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+
+            <div
+              class="cursor-pointer py-24 flex flex-col items-center text-center bg-white rounded-lg transition-colors hover:bg-gray-300"
+            >
+              <h1 class="text-3xl text-black font-bold">NFT (.snr)</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
